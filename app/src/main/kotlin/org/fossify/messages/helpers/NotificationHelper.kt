@@ -62,7 +62,7 @@ class NotificationHelper(private val context: Context) {
                 context,
                 notificationId,
                 contentIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
 
         val markAsReadIntent = Intent(context, MarkAsReadReceiver::class.java).apply {
@@ -74,7 +74,7 @@ class NotificationHelper(private val context: Context) {
                 context,
                 notificationId,
                 markAsReadIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
 
         val deleteSmsIntent = Intent(context, DeleteSmsReceiver::class.java).apply {
@@ -86,7 +86,7 @@ class NotificationHelper(private val context: Context) {
                 context,
                 notificationId,
                 deleteSmsIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
 
         var replyAction: NotificationCompat.Action? = null
@@ -204,7 +204,7 @@ class NotificationHelper(private val context: Context) {
             context,
             notificationId,
             intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val summaryText =

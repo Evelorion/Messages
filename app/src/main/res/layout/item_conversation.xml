@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/tiny_margin"
+    android:background="@drawable/message_card_background_ripple"
     android:clickable="true"
     android:focusable="true"
     android:minHeight="@dimen/two_line_list_item_min_height"
     android:paddingStart="@dimen/activity_margin"
-    android:paddingTop="@dimen/medium_margin"
+    android:paddingTop="@dimen/big_margin"
     android:paddingEnd="@dimen/activity_margin"
-    android:paddingBottom="@dimen/medium_margin">
+    android:paddingBottom="@dimen/big_margin">
 
     <ImageView
         android:id="@+id/conversation_image"

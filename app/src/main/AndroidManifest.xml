@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto">
 
+    <uses-permission android:name="org.fossify.permission.READ_PRIVATE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -215,7 +216,7 @@
         <receiver
             android:name=".receivers.MarkAsReadReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="org.fossify.messages.action.mark_as_read" />
             </intent-filter>
@@ -224,7 +225,7 @@
         <receiver
             android:name=".receivers.DirectReplyReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="org.fossify.messages.action.reply" />
             </intent-filter>
@@ -233,7 +234,7 @@
         <receiver
             android:name=".receivers.DeleteSmsReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="org.fossify.messages.action.delete" />
             </intent-filter>

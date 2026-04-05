@@ -81,6 +81,10 @@
                         android:clipToPadding="false"
                         android:layoutAnimation="@anim/layout_animation"
                         android:overScrollMode="ifContentScrolls"
+                        android:paddingStart="@dimen/medium_margin"
+                        android:paddingTop="@dimen/medium_margin"
+                        android:paddingEnd="@dimen/medium_margin"
+                        android:paddingBottom="@dimen/conversation_list_bottom_padding"
                         android:scrollbars="none"
                         app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
@@ -130,6 +134,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingEnd="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:scrollbars="vertical"
                 app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
