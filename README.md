@@ -1,44 +1,59 @@
-# Fossify Messages
+# 短信私密增强版
 <img alt="Logo" src="graphics/icon.webp" width="120" />
 
-<a href='https://play.google.com/store/apps/details?id=org.fossify.messages'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height=80/></a> <a href="https://f-droid.org/packages/org.fossify.messages/"><img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-en.svg" alt="Get it on F-Droid" height=80/></a> <a href="https://apt.izzysoft.de/fdroid/index/apk/org.fossify.messages"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height=80/></a>
+这是基于 Fossify Messages 修改后的个人版本，重点放在通知操作隐私保护和短信界面优化。
 
-Fossify Messages is your trusted messaging companion, designed to enhance your messaging experience in various ways.
+## 版本说明
 
-**📱 STAY CONNECTED WITH EASE:**  
-With Fossify Messages, you can effortlessly send SMS and MMS messages to stay connected with your loved ones. Enjoy SMS/MMS based group messaging and express yourself with photos, emojis, and quick greetings.
+这个仓库展示的是我修改后的版本，不是原版仓库首页说明。
 
-**🚫 BLOCK UNWANTED MESSAGES:**  
-Take control of your messaging experience with a robust blocking feature, easily preventing unwanted messages, even from unknown contacts. You can also export and import blocked numbers for hassle-free backup. Additionally, customize your experience by preventing messages with specific words or phrases from reaching your inbox.
+本版本主要目标：
 
-**🔒 EFFORTLESS SMS BACKUP:**  
-Say goodbye to worries about losing important messages. Fossify Messages offers convenient SMS backup functionality by allowing you to export and import your messages. This feature ensures that you can easily switch devices without losing your valuable conversations.
+- 阻止外部应用伪造短信通知快捷操作
+- 收紧通知相关安全细节
+- 优化会话列表和搜索结果的界面显示
 
-**🚀 LIGHTNING-FAST AND LIGHTWEIGHT:**  
-Despite its powerful features, Fossify Messages boasts a remarkably small app size, making it quick and easy to download and install. Experience speed and efficiency while enjoying the peace of mind that comes with SMS backup.
+## 主要修改内容
 
-**🔐 ENHANCED PRIVACY:**  
-Customize what appears on your lock screen for added privacy. Choose to display only the sender, message content, or nothing at all. Your messages are in your control.
+### 1. 通知操作隐私保护
 
-**🔍 EFFICIENT MESSAGE SEARCH:**  
-Say goodbye to endless scrolling through conversations. Fossify Messages simplifies message retrieval with a quick and efficient search feature. Find what you need, when you need it.
+- 将通知里的“标为已读”“直接回复”“删除短信”接收器改成 `exported=false`
+- 防止外部应用直接发送同名广播来控制短信行为
+- 收紧通知 `PendingIntent` 的创建方式，降低被外部篡改利用的风险
 
-**🌈 MODERN DESIGN & USER-FRIENDLY INTERFACE:**  
-Enjoy a clean, modern design with a user-friendly interface. The app features a material design and a dark theme option, providing a visually appealing and comfortable user experience.
+### 2. 界面优化
 
-**🌐 OPEN-SOURCE TRANSPARENCY:**  
-Your privacy is a top priority. Fossify Messages operates without requiring an internet connection, guaranteeing message security and stability. Our app is completely free of ads and does not request unnecessary permissions. Moreover, it is fully open-source, providing you with peace of mind, as you have access to the source code for security and privacy audits.
+- 会话列表增加更自然的左右留白
+- 会话卡片增加更清晰的层次感
+- 搜索结果项同步做了间距和卡片风格统一
+- 主界面底部区域和列表阅读体验更清爽
 
-Make the switch to Fossify Messages and experience messaging the way it should be – private, efficient, and user-friendly. Download now and join our community committed to safeguarding your messaging experience.
+## 关键修改入口
 
-➡️ Explore more Fossify apps: https://www.fossify.org<br>
-➡️ Open-Source Code: https://www.github.com/FossifyOrg<br>
-➡️ Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
-➡️ Connect on Telegram: https://t.me/Fossify
+- `app/src/main/AndroidManifest.xml`
+- `app/src/main/kotlin/org/fossify/messages/helpers/NotificationHelper.kt`
+- `app/src/main/res/layout/activity_main.xml`
+- `app/src/main/res/layout/item_conversation.xml`
+- `app/src/main/res/layout/item_search_result.xml`
+
+## 发行说明
+
+GitHub Release 中上传的是当前修改版构建产物。
+
+注意：
+
+- 当前 Release 附件为 `unsigned` APK
+- 原因是当前构建环境没有正式签名证书
+- 如果需要可直接安装的正式版，需要再使用你自己的签名证书重新打包
+
+## 仓库说明
+
+- 默认分支：`private-ui-edition`
+- 这个分支保存的是我当前这套隐私增强和界面优化修改
+- 原版 Fossify 项目请以官方仓库为准
 
 <div align="center">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_en-US.png" width="30%">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_en-US.png" width="30%">
 </div>
-
